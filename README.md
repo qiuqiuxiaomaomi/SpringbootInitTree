@@ -216,3 +216,38 @@ run方法中的Spring容器创建完成之后会调用afterRefresh方法
         }
     }
 </pre>
+
+<pre>
+如果想在Spring容器启动的时候做一些特殊的事情：
+      1）CommandLineRunner接口
+      2）ApplicationRunner接口
+
+      如果有顺序控制，可以添加  @Order 注解
+</pre>
+
+![](https://i.imgur.com/8Aj1DJp.png)
+
+<pre>
+把整个项目的流程比作一条河，那么监听器的作用就是能够听到河流里的所有声音，过滤器就是能够过
+滤出其中的鱼，而拦截器则是拦截其中的部分鱼，并且作标记。所以当需要监听到项目中的一些信息，
+并且不需要对流程做更改时，用监听器；当需要过滤掉其中的部分信息，只留一部分时，就用过滤器；
+当需要对其流程进行更改，做相关的记录时用拦截器。
+
+
+拦截器：
+      HandlerInterceptorAdapter
+
+过滤器：
+      Filter
+          doFilter方法
+      1）在HttpServletRequest 到达 Servlet 之前，拦截客户的 HttpServletRequest 。 
+         根据需要检查 HttpServletRequest ，也可以修改HttpServletRequest 头和数据。
+      2）在HttpServletResponse 到达客户端之前，拦截HttpServletResponse 。 根据需要检
+         查 HttpServletResponse ，也可以修改HttpServletResponse头和数据。  
+
+监听器 Listener：
+      1）监听器Listener就是在application,session,request三个对象创建、销毁或者往其中
+         添加修改删除属性时自动执行代码的功能组件。
+
+　　  2）Listener是Servlet的监听器，可以监听客户端的请求，服务端的操作等
+</pre>
